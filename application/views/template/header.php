@@ -15,11 +15,20 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?= base_url();?>">Home<span class="sr-only">(current)</span></a>
       </li>
+      <?php if(isset($user['name'])){ ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>login/logout">Logout</a>
+      </li>
+    <?php } else{?>
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>login">Login</a>
       </li>
+    <?php } ?>
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>tracking">pesananku</a>
+      <a class="nav-link" href="<?= base_url();?>user/pesan">Pesan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>user/pesananku">pesananku</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>home/list_harga">List Harga</a>
@@ -36,14 +45,3 @@
     </ul>
   </div>
 </nav>
-
-
-<!-- <h3>bagian header</h3>
-<a href="< ?= base_url();?>">home</a> &emsp;
-<a href="< ?= base_url();?>login">Login</a>&emsp;
-<a href="< ?= base_url();?>tracking">pesananku</a>&emsp;
-<a href="< ?= base_url();?>home/list_harga">List Harga</a>&emsp;
-<a href="< ?= base_url();?>home/FAQ">FAQ</a>&emsp;
-<a href="< ?= base_url();?>home/layanan">Layanan</a>&emsp;
-<a href="< ?= base_url();?>home/kontak">Kontak</a>
-<hr> -->

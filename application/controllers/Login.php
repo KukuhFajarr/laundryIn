@@ -31,11 +31,19 @@ class Login extends CI_Controller {
         if ($user['is_active'] == 1) {
           if (password_verify($password, $user['password'])) {
             $data = [
+                'id' => $user['id'],
                 'email' => $user['email'],
                 'role_id' => $user['role_id']
             ];
             $this->session->set_userdata($data);
-            redirect('user');
+            if($this->session->userdata("role_id") == "1"){
+                            redirect('admin');
+                        }
+                        elseif ($this->session->userdata("role_id") == "3") {
+                          redirect('admin');
+                        }else {
+                            redirect('user');
+                        }
           }else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                                           Wrong password</div>');
